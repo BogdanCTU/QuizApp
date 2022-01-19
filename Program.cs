@@ -16,7 +16,8 @@ namespace QuizApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(false, 0));
+            //Application.Run(new OpenForm());
+            Application.Run(new Form1(false,-1));
         }
     }
 }

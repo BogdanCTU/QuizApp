@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QuizApp.AddUserForm">
+    <Position X="9.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAASAAABAAAACBAAACIAAAIAABAAAAACAAAAA=</HashCode>
+      <FileName>AddUserForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.DeleteUserForm">
+    <Position X="7" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAABAAAACEAAAmAAkAAAAAEIAAAAQCAAA=</HashCode>
+      <FileName>DeleteUserForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.FinisedGameForm">
+    <Position X="11.5" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="components" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FinisedGameForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.Form1">
+    <Position X="6" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAUAAAACAgABACAgSAgAACAAAAAAAACAABCAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.GameForm">
+    <Position X="3.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>wCEAAQAAAOEwABAAAACAAAACAAAAAAAAAAAAAAAgCAI=</HashCode>
+      <FileName>GameForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.Quiz">
+    <Position X="9" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wCEAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAA=</HashCode>
+      <FileName>Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.QuizDbContext">
+    <Position X="8.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.User">
+    <Position X="9" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.UserDbContext">
+    <Position X="10.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.UserDbViewForm">
+    <Position X="3.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ARAgAAAAAGAQBBAACACBAAACgAkAAQAAAAAAACAAAAA=</HashCode>
+      <FileName>UserDbViewForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuizApp.UserLogin">
+    <Position X="3.75" Y="11.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQABBAAgACAAABAAAACBAIACBAAAAQAAEACCCCAAAAA=</HashCode>
+      <FileName>UserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Property Name="AcceptButton" Hidden="true" />
+      <Event Name="Activated" Hidden="true" />
+      <Property Name="ActiveForm" Hidden="true" />
+      <Property Name="ActiveMdiChild" Hidden="true" />
+      <Property Name="AllowTransparency" Hidden="true" />
+      <Property Name="AutoScale" Hidden="true" />
+      <Property Name="AutoScaleBaseSize" Hidden="true" />
+      <Property Name="AutoScroll" Hidden="true" />
+      <Property Name="AutoSize" Hidden="true" />
+      <Event Name="AutoSizeChanged" Hidden="true" />
+      <Property Name="AutoSizeMode" Hidden="true" />
+      <Property Name="AutoValidate" Hidden="true" />
+      <Event Name="AutoValidateChanged" Hidden="true" />
+      <Property Name="BackColor" Hidden="true" />
+      <Property Name="CancelButton" Hidden="true" />
+      <Property Name="ClientSize" Hidden="true" />
+      <Event Name="Closed" Hidden="true" />
+      <Event Name="Closing" Hidden="true" />
+      <Property Name="ControlBox" Hidden="true" />
+      <Property Name="CreateParams" Hidden="true" />
+      <Event Name="Deactivate" Hidden="true" />
+      <Property Name="DefaultImeMode" Hidden="true" />
+      <Property Name="DefaultSize" Hidden="true" />
+      <Property Name="DesktopBounds" Hidden="true" />
+      <Property Name="DesktopLocation" Hidden="true" />
+      <Property Name="DialogResult" Hidden="true" />
+      <Event Name="DpiChanged" Hidden="true" />
+      <Property Name="FormBorderStyle" Hidden="true" />
+      <Event Name="FormClosed" Hidden="true" />
+      <Event Name="FormClosing" Hidden="true" />
+      <Property Name="HelpButton" Hidden="true" />
+      <Event Name="HelpButtonClicked" Hidden="true" />
+      <Property Name="Icon" Hidden="true" />
+      <Event Name="InputLanguageChanged" Hidden="true" />
+      <Event Name="InputLanguageChanging" Hidden="true" />
+      <Property Name="IsMdiChild" Hidden="true" />
+      <Property Name="IsMdiContainer" Hidden="true" />
+      <Property Name="IsRestrictedWindow" Hidden="true" />
+      <Property Name="KeyPreview" Hidden="true" />
+      <Event Name="Load" Hidden="true" />
+      <Property Name="Location" Hidden="true" />
+      <Property Name="MainMenuStrip" Hidden="true" />
+      <Property Name="Margin" Hidden="true" />
+      <Event Name="MarginChanged" Hidden="true" />
+      <Property Name="MaximizeBox" Hidden="true" />
+      <Property Name="MaximizedBounds" Hidden="true" />
+      <Event Name="MaximizedBoundsChanged" Hidden="true" />
+      <Property Name="MaximumSize" Hidden="true" />
+      <Event Name="MaximumSizeChanged" Hidden="true" />
+      <Event Name="MdiChildActivate" Hidden="true" />
+      <Property Name="MdiChildren" Hidden="true" />
+      <Property Name="MdiParent" Hidden="true" />
+      <Property Name="Menu" Hidden="true" />
+      <Event Name="MenuComplete" Hidden="true" />
+      <Event Name="MenuStart" Hidden="true" />
+      <Property Name="MergedMenu" Hidden="true" />
+      <Property Name="MinimizeBox" Hidden="true" />
+      <Property Name="MinimumSize" Hidden="true" />
+      <Event Name="MinimumSizeChanged" Hidden="true" />
+      <Property Name="Modal" Hidden="true" />
+      <Property Name="Opacity" Hidden="true" />
+      <Property Name="OwnedForms" Hidden="true" />
+      <Property Name="Owner" Hidden="true" />
+      <Event Name="ResizeBegin" Hidden="true" />
+      <Event Name="ResizeEnd" Hidden="true" />
+      <Property Name="RestoreBounds" Hidden="true" />
+      <Property Name="RightToLeftLayout" Hidden="true" />
+      <Event Name="RightToLeftLayoutChanged" Hidden="true" />
+      <Property Name="ShowIcon" Hidden="true" />
+      <Property Name="ShowInTaskbar" Hidden="true" />
+      <Event Name="Shown" Hidden="true" />
+      <Property Name="ShowWithoutActivation" Hidden="true" />
+      <Property Name="Size" Hidden="true" />
+      <Property Name="SizeGripStyle" Hidden="true" />
+      <Property Name="StartPosition" Hidden="true" />
+      <Property Name="TabIndex" Hidden="true" />
+      <Event Name="TabIndexChanged" Hidden="true" />
+      <Property Name="TabStop" Hidden="true" />
+      <Event Name="TabStopChanged" Hidden="true" />
+      <Property Name="Text" Hidden="true" />
+      <Property Name="TopLevel" Hidden="true" />
+      <Property Name="TopMost" Hidden="true" />
+      <Property Name="TransparencyKey" Hidden="true" />
+      <Property Name="WindowState" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="System.Windows.Forms.Form.ControlCollection" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Data.Entity.DbContext">
+    <Position X="9" Y="5.75" Width="2.5" />
+    <Members>
+      <Property Name="ChangeTracker" Hidden="true" />
+      <Property Name="Configuration" Hidden="true" />
+      <Property Name="Database" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object">
+    <Position X="6.75" Y="11.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="QuizApp.Properties.Resources">
+    <Position X="6.75" Y="14.75" Width="1.75" />
+    <Members>
+      <Property Name="Culture" Hidden="true" />
+      <Field Name="resourceCulture" Hidden="true" />
+      <Field Name="resourceMan" Hidden="true" />
+      <Property Name="ResourceManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -16,22 +16,28 @@ namespace QuizApp
         public UserDbViewForm(int adm)
         {
             InitializeComponent();
-            Task.Run(() => LoadData());
+            //Task.Run(() =>
+            LoadData();
+            //);
             admin = adm;
         }
 
         // BACK BUTTON -> DONE
         private void BackButton_Click(object sender, EventArgs e)
         {
+            UserLogin ul = new UserLogin();
+            ul.Show();
             this.Close();
         }
 
         // LOAD DATA -> DONE
         private async void LoadData()
         {
-            await Task.Run(() =>
+            //await Task.Run(() =>
+            //{
+            try
             {
-                    using (UserDbContext db = new UserDbContext())
+                using (UserDbContext db = new UserDbContext())
                     {
                         var res = from s in db.Users
                                   select new
@@ -42,22 +48,23 @@ namespace QuizApp
                                   };
                         dataGridView1.DataSource = res.ToList();
                     }
-                    Form1.TraceWrite("Loaded Users from DataBase");
-                
-            });
+                OpenForm.TraceWrite("Loaded Users from DataBase");
+                }
+            catch
+            {
+                MessageBox.Show("Error loading User Database!");
+            }
+            //});
         }
 
         // REFRESH BUTTON -> DONE
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Task.Run(() => LoadData());
-            }
-            catch
-            {
-                MessageBox.Show("Error loading User Database!");
-            }
+
+            //Task.Run(() => 
+            LoadData();
+                //);
+            
         }
 
         // ADD -> DONE

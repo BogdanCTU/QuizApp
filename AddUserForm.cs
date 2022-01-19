@@ -45,7 +45,9 @@ namespace QuizApp
                         string userUsername = this.textBox4.Text;
                         string userPassword = this.textBox5.Text;
                         int userPoints = 0;
-                        Task.Run(() => AddUserAsync(userUsername, userPassword, userPoints));
+                        //Task.Run(() => 
+                        AddUserAsync(userUsername, userPassword, userPoints);
+                        //);
                     }
                     // SALVARE PASSSWORD SI CHEIE IN XML
                     // PASSWORD TREBUIE SA FIE CRIPTATA
@@ -79,7 +81,7 @@ namespace QuizApp
                 udb.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
-            Form1.TraceWrite("Add User");
+            OpenForm.TraceWrite("Add User");
         }
     }
 }

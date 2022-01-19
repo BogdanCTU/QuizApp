@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,54 +11,31 @@ namespace QuizApp
         public static int ID_User = -1, LastQuest = 2;
         public Form1(bool log, int IDU)
         {
-            //Trace data
-            FileStream traceLog = new FileStream("DatabaseTrace_Trace.txt", FileMode.OpenOrCreate);
-            TextWriterTraceListener traceListener = new TextWriterTraceListener(traceLog);
-            Trace.Listeners.Add(traceListener);
-            Trace.AutoFlush = true;
-
             InitializeComponent();
+
             int a;
             logged = log;
             ID_User = IDU;
-            if(logged != false && ID_User != -1)
+            if (logged != false && ID_User != -1)
             {
-                string username = GetUsername();
-                UserLabel.ResetText();
-                UserLabel.Text = ("User: " + username);
+                //string username =
+                SetUser();
+                //UserLabel.Text = ("User: " + username);
             }
         }
 
-        public static void TraceWrite(string message)
+        private void SetUser()
         {
-            Trace.WriteLine($"{DateTime.Now} : {message}");
-        }
-
-        public static string GetUsername()
-        {
-            string usrn = " ";
-            try
+            using (UserDbContext udb = new UserDbContext())
             {
-                using (UserDbContext db = new UserDbContext())
+                var res = from s in udb.Users
+                          where s.IdUser.Equals(ID_User)
+                          select new { s.UserUsername };
+                foreach (var user in res)
                 {
-                    var res = from s in db.Users
-                              where s.IdUser.Equals(ID_User)
-                              select new
-                              {
-                                  s.UserUsername,
-                              };
-                    foreach (var usr in res)
-                    {
-                        usrn = usr.UserUsername;
-                    }
+                    label1.Text = ("User: " + user.UserUsername);
                 }
-                TraceWrite("GetUsername");
             }
-            catch
-            {
-                MessageBox.Show("An error has occoured! \n   Please try again!");
-            }
-            return usrn;
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
@@ -80,6 +55,7 @@ namespace QuizApp
         {
             UserLogin u = new UserLogin();
             u.Show();
+            //this.Close();
             this.Hide();
         }
     }

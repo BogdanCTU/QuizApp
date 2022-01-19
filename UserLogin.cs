@@ -35,7 +35,9 @@ namespace QuizApp
 
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true || string.IsNullOrWhiteSpace(maskedTextBox1.Text) != true)
             {
-                Task.Run(() => UserLogin_(uUsername, uUserPassword));
+                //Task.Run(() =>
+                UserLogin_(uUsername, uUserPassword);
+                ////);
             }
             else
             {
@@ -45,8 +47,8 @@ namespace QuizApp
 
         private async void UserLogin_(string Username, string UserPassword)
         {
-            await Task.Run(() =>
-            {
+            //await Task.Run(() =>
+            //{
                 try
                 {
                     using (UserDbContext db = new UserDbContext())
@@ -72,13 +74,13 @@ namespace QuizApp
                     }
                     textBox1.Clear();
                     maskedTextBox1.Clear();
-                    Form1.TraceWrite("User Login");
+                OpenForm.TraceWrite("User Login");
                 }
                 catch
                 {
                     MessageBox.Show("An error has occoured! \n   Please try again!");
                 }
-            });
+            //});
         }
 
         //DONE
@@ -87,6 +89,7 @@ namespace QuizApp
             UserDbViewForm b = new UserDbViewForm(0);
             //this.Hide();
             b.Show();
+            this.Close();
         }
 
         // ADMIN - DONE
@@ -95,7 +98,7 @@ namespace QuizApp
             if(this.textBox1.Text == "admin" && this.maskedTextBox1.Text == "admin")
             {
                 UserDbViewForm b = new UserDbViewForm(-1);
-                //this.Hide();
+                this.Close();
                 b.Show();
             }
             else
@@ -108,8 +111,9 @@ namespace QuizApp
         private void BackButton_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1(false, 0);
-            f.Show();
             this.Close();
+            f.ShowDialog();
+            
         }
     }
 }

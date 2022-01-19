@@ -34,6 +34,7 @@
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leaderBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             Start_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,14 +71,14 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // leaderBoardToolStripMenuItem
             // 
             this.leaderBoardToolStripMenuItem.Name = "leaderBoardToolStripMenuItem";
-            this.leaderBoardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.leaderBoardToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.leaderBoardToolStripMenuItem.Text = "Leader Board";
             // 
             // UserLabel
@@ -88,11 +89,21 @@
             this.UserLabel.Size = new System.Drawing.Size(0, 13);
             this.UserLabel.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "User: \"login first\"";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(Start_Button);
             this.Controls.Add(this.menuStrip1);
@@ -113,6 +124,7 @@
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leaderBoardToolStripMenuItem;
         private System.Windows.Forms.Label UserLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 

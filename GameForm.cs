@@ -44,8 +44,8 @@ namespace QuizApp
             else
             {
                 MessageBox.Show("Game finished!");
-                Form1 f = new Form1(true, Form1.ID_User);
-                f.Show();
+                //Form1 f = new Form1(true, Form1.ID_User);
+                //f.Show();
             }
         }
 
@@ -72,8 +72,8 @@ namespace QuizApp
             else
             {
                 MessageBox.Show("Game finished!");
-                Form1 f = new Form1(true, Form1.ID_User);
-                f.Show();
+                //Form1 f = new Form1(true, Form1.ID_User);
+                //f.Show();
             }
         }
 
@@ -100,8 +100,8 @@ namespace QuizApp
             else
             {
                 MessageBox.Show("Game finished!");
-                Form1 f = new Form1(true, Form1.ID_User);
-                f.Show();
+                //Form1 f = new Form1(true, Form1.ID_User);
+                //f.Show();
             }
         }
 
@@ -128,8 +128,8 @@ namespace QuizApp
             else
             {
                 MessageBox.Show("Game finished!");
-                Form1 f = new Form1(true, Form1.ID_User);
-                f.Show();
+                //Form1 f = new Form1(true, Form1.ID_User);
+                //f.Show();
             }
         }
 
@@ -161,7 +161,7 @@ namespace QuizApp
                             answer = q.CorectAnswer;
                         }
                     }
-                    Form1.TraceWrite("Loaded Quiz");
+                    OpenForm.TraceWrite("Loaded Quiz");
                 }
                 catch
                 {
@@ -184,14 +184,14 @@ namespace QuizApp
                         db.SaveChanges();
                     }
                 }
-                Form1.TraceWrite("Added Point on UserPoints in UserDB");
+                OpenForm.TraceWrite("Added Point on UserPoints in UserDB");
             });
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1(true, Form1.ID_User);
-            f.Show();
+            //Form1 f = new Form1(true, Form1.ID_User);
+            //f.Show();
             this.Close();
         }
     }

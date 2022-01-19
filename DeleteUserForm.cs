@@ -21,7 +21,11 @@ namespace QuizApp
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true)
             {
-                Task.Run(() => LoadQuiz(int.Parse(textBox1.Text)));
+                int id_u = int.Parse(textBox1.Text);
+                //Task.Run(() => 
+                //SearchUser(int.Parse(textBox1.Text));
+                //);
+                SearchUser(id_u);
             }
             else
             {
@@ -29,32 +33,32 @@ namespace QuizApp
             }
         }
 
-        private async void LoadQuiz(int ID)
+        private void SearchUser(int ID)
         {
-            await Task.Run(() =>
+            //await Task.Run(() =>
+            //{
+            try
             {
-                try
+                using (UserDbContext db = new UserDbContext())
                 {
-                    using (UserDbContext db = new UserDbContext())
-                    {
-                        var res = from s in db.Users
-                                  where s.IdUser.Equals(ID)
-                                  select new
-                                  {
-                                      s.IdUser,
-                                      s.UserUsername,
-                                      s.UserPoints
-                                  };
-                        dataGridView1.DataSource = res.ToList();
-                    }
-                    this.DialogResult = DialogResult.OK;
-                    Form1.TraceWrite("Searched User in DataBase");
+
+                    var res = from s in db.Users
+                              where s.IdUser.Equals(ID)
+                              select new
+                              {
+                                  s.IdUser,
+                                  s.UserUsername,
+                                  s.UserPoints
+                              };
+                    dataGridView1.DataSource = res.ToList();
                 }
-                catch
-                {
-                    MessageBox.Show("Error accessing DataBase! \nTry again...");
-                }
-            });
+                OpenForm.TraceWrite("Searched User in DataBase");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please insert values in textbox!");
+            }
+            //});
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -98,7 +102,7 @@ namespace QuizApp
                     }
                 }
                 this.DialogResult = DialogResult.OK;
-                Form1.TraceWrite("Delete User");
+                OpenForm.TraceWrite("Delete User");
             });
         }
 
