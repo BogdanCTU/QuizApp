@@ -15,6 +15,7 @@ namespace QuizApp
         public Form1()
         {
             InitializeComponent();
+            int a;
         }
     }
 }
