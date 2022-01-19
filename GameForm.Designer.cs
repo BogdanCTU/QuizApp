@@ -75,6 +75,7 @@ namespace QuizApp
             this.Answer1.TabIndex = 3;
             this.Answer1.Text = "1990";
             this.Answer1.UseVisualStyleBackColor = true;
+            this.Answer1.Click += new System.EventHandler(this.Answer1_Click);
             // 
             // Answer2
             // 
@@ -84,6 +85,7 @@ namespace QuizApp
             this.Answer2.TabIndex = 4;
             this.Answer2.Text = "1998";
             this.Answer2.UseVisualStyleBackColor = true;
+            this.Answer2.Click += new System.EventHandler(this.Answer2_Click);
             // 
             // Answer4
             // 
@@ -93,6 +95,7 @@ namespace QuizApp
             this.Answer4.TabIndex = 5;
             this.Answer4.Text = "1978";
             this.Answer4.UseVisualStyleBackColor = true;
+            this.Answer4.Click += new System.EventHandler(this.Answer4_Click);
             // 
             // Answer3
             // 
@@ -102,6 +105,7 @@ namespace QuizApp
             this.Answer3.TabIndex = 6;
             this.Answer3.Text = "1987";
             this.Answer3.UseVisualStyleBackColor = true;
+            this.Answer3.Click += new System.EventHandler(this.Answer3_Click);
             // 
             // label2
             // 
@@ -120,6 +124,7 @@ namespace QuizApp
             this.QuitButton.TabIndex = 8;
             this.QuitButton.Text = "Quit Now";
             this.QuitButton.UseVisualStyleBackColor = true;
+            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
             // 
             // GameForm
             // 

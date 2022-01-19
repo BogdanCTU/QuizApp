@@ -19,26 +19,42 @@ namespace QuizApp
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(textBox1.Text) != true)
             {
-                using (UserDbContext db = new UserDbContext())
+                Task.Run(() => LoadQuiz(int.Parse(textBox1.Text)));
+            }
+            else
+            {
+                MessageBox.Show("Please insert User ID in textbox! \n    Try again...");
+            }
+        }
+
+        private async void LoadQuiz(int ID)
+        {
+            await Task.Run(() =>
+            {
+                try
                 {
-                    int uid = int.Parse(textBox1.Text);
-                    var res = from s in db.Users
-                              where s.IdUser.Equals(uid)
-                              select new
-                              {
-                                  s.IdUser,
-                                  s.UserUsername,
-                                  s.UserPoints
-                              };
-                    dataGridView1.DataSource = res.ToList();
+                    using (UserDbContext db = new UserDbContext())
+                    {
+                        var res = from s in db.Users
+                                  where s.IdUser.Equals(ID)
+                                  select new
+                                  {
+                                      s.IdUser,
+                                      s.UserUsername,
+                                      s.UserPoints
+                                  };
+                        dataGridView1.DataSource = res.ToList();
+                    }
+                    this.DialogResult = DialogResult.OK;
+                    Form1.TraceWrite("Searched User in DataBase");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please insert values in textbox!");
-            }
+                catch
+                {
+                    MessageBox.Show("Error accessing DataBase! \nTry again...");
+                }
+            });
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -67,18 +83,23 @@ namespace QuizApp
             this.Close();
         }
 
-        private void DeleteUserAsync(int UID)
+        private async void DeleteUserAsync(int ID)
         {
-            using (UserDbContext db = new UserDbContext())
+            await Task.Run(() =>
             {
-                var res = db.Users.SingleOrDefault(p => p.IdUser == UID);
-
-                if (res != null)
+                using (UserDbContext db = new UserDbContext())
                 {
-                    db.Entry(res).State = System.Data.Entity.EntityState.Deleted;   // delete user
-                    db.SaveChanges();
+                    var res = db.Users.SingleOrDefault(p => p.IdUser == ID);
+
+                    if (res != null)
+                    {
+                        db.Entry(res).State = System.Data.Entity.EntityState.Deleted;   // delete user
+                        db.SaveChanges();
+                    }
                 }
-            }
+                this.DialogResult = DialogResult.OK;
+                Form1.TraceWrite("Delete User");
+            });
         }
 
         // EOF

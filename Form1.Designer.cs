@@ -33,6 +33,7 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leaderBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserLabel = new System.Windows.Forms.Label();
             Start_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -79,11 +80,20 @@
             this.leaderBoardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.leaderBoardToolStripMenuItem.Text = "Leader Board";
             // 
+            // UserLabel
+            // 
+            this.UserLabel.AutoSize = true;
+            this.UserLabel.Location = new System.Drawing.Point(12, 24);
+            this.UserLabel.Name = "UserLabel";
+            this.UserLabel.Size = new System.Drawing.Size(0, 13);
+            this.UserLabel.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UserLabel);
             this.Controls.Add(Start_Button);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -102,6 +112,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leaderBoardToolStripMenuItem;
+        private System.Windows.Forms.Label UserLabel;
     }
 }
 

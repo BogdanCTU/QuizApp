@@ -47,6 +47,13 @@ namespace QuizApp
                         int userPoints = 0;
                         Task.Run(() => AddUserAsync(userUsername, userPassword, userPoints));
                     }
+                    // SALVARE PASSSWORD SI CHEIE IN XML
+                    // PASSWORD TREBUIE SA FIE CRIPTATA
+                    // SILVIU 
+
+
+
+
                     this.Close();
                 }
                 catch (Exception ex)
@@ -72,6 +79,7 @@ namespace QuizApp
                 udb.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
+            Form1.TraceWrite("Add User");
         }
     }
 }

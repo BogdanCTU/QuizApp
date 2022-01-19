@@ -27,15 +27,32 @@ namespace QuizApp
             string uUserPassword = this.maskedTextBox1.Text;
 
             // COD SILVIU - FUCNTIE SILVIU SE APELEAZA AICI
-            // decriptez parola
+            // CITESTI DIN XML CHEIA SI PAROLA CRIPTATA
+            // DECRIPTEZI PAROLA PRIN CHEIE
+            // SILVIU
+
+
+
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true || string.IsNullOrWhiteSpace(maskedTextBox1.Text) != true)
+            {
+                Task.Run(() => UserLogin_(uUsername, uUserPassword));
+            }
+            else
+            {
+                MessageBox.Show("Please insert correct username \n     and password!");
+            }
+        }
+
+        private async void UserLogin_(string Username, string UserPassword)
+        {
+            await Task.Run(() =>
             {
                 try
                 {
                     using (UserDbContext db = new UserDbContext())
                     {
                         var res = from s in db.Users
-                                  where s.UserUsername.Contains(uUsername)
+                                  where s.UserUsername.Contains(Username)
                                   select new
                                   {
                                       s.IdUser,
@@ -44,7 +61,7 @@ namespace QuizApp
                                   };
                         foreach (var usr in res)
                         {
-                            if (usr.UserPassword.Equals(uUserPassword) == true)
+                            if (usr.UserPassword.Equals(UserPassword) == true)
                             {
                                 int iduser = usr.IdUser;
                                 Form1 a = new Form1(true, ID_User);
@@ -55,16 +72,13 @@ namespace QuizApp
                     }
                     textBox1.Clear();
                     maskedTextBox1.Clear();
+                    Form1.TraceWrite("User Login");
                 }
                 catch
                 {
                     MessageBox.Show("An error has occoured! \n   Please try again!");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please insert correct username \n     and password!");
-            }
+            });
         }
 
         //DONE

@@ -16,7 +16,7 @@ namespace QuizApp
         public UserDbViewForm(int adm)
         {
             InitializeComponent();
-            LoadData();
+            Task.Run(() => LoadData());
             admin = adm;
         }
 
@@ -24,31 +24,40 @@ namespace QuizApp
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            //UserLogin u = new UserLogin();
-            //u.Show();
         }
 
         // LOAD DATA -> DONE
-        private void LoadData()
+        private async void LoadData()
         {
-            using (UserDbContext db = new UserDbContext())
+            await Task.Run(() =>
             {
-                var res = from s in db.Users
-                          select new
-                          {
-                              s.IdUser,
-                              s.UserUsername,
-                              s.UserPoints
-                          };
-                          //error if add UserPassword
-                dataGridView1.DataSource = res.ToList();
-            }
+                    using (UserDbContext db = new UserDbContext())
+                    {
+                        var res = from s in db.Users
+                                  select new
+                                  {
+                                      s.IdUser,
+                                      s.UserUsername,
+                                      s.UserPoints
+                                  };
+                        dataGridView1.DataSource = res.ToList();
+                    }
+                    Form1.TraceWrite("Loaded Users from DataBase");
+                
+            });
         }
 
         // REFRESH BUTTON -> DONE
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            LoadData();
+            try
+            {
+                Task.Run(() => LoadData());
+            }
+            catch
+            {
+                MessageBox.Show("Error loading User Database!");
+            }
         }
 
         // ADD -> DONE
