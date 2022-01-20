@@ -18,23 +18,31 @@ namespace QuizApp
             ID_User = IDU;
             if (logged != false && ID_User != -1)
             {
-                //string username =
-                SetUser();
-                //UserLabel.Text = ("User: " + username);
+                string usernm = Get_UserName();
+                label1.Text = ("User: " + usernm);
             }
         }
 
-        private void SetUser()
+        public static string Get_UserName()
         {
-            using (UserDbContext udb = new UserDbContext())
+            string u;
+            try
             {
-                var res = from s in udb.Users
-                          where s.IdUser.Equals(ID_User)
-                          select new { s.UserUsername };
-                foreach (var user in res)
+                using (UserDbContext udb = new UserDbContext())
                 {
-                    label1.Text = ("User: " + user.UserUsername);
+                    var res = udb.Users.SingleOrDefault(p => p.IdUser == ID_User);
+                    //var res = from s in udb.Users
+                    //where s.IdUser.Equals(ID_User)
+                    //select new { s.UserUsername };
+                    u = res.UserUsername;
                 }
+                OpenForm.TraceWrite("Readed Username in User Database");
+                return u;
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing User Database!");
+                return " ";
             }
         }
 

@@ -66,7 +66,7 @@ namespace QuizApp
                             if (usr.UserPassword.Equals(UserPassword) == true)
                             {
                                 int iduser = usr.IdUser;
-                                Form1 a = new Form1(true, ID_User);
+                                Form1 a = new Form1(true, iduser);
                                 a.Show();
                                 this.Close();
                             }

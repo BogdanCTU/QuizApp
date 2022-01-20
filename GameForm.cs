@@ -19,6 +19,9 @@ namespace QuizApp
             InitializeComponent();
             Quest = question;
             LoadQuiz();
+            string UserName = Form1.Get_UserName();
+            int points = Get_UserPoints();
+            label2.Text = ("User: " + UserName + " | Points: " + points);
         }
 
         private void Answer1_Click(object sender, EventArgs e)
@@ -186,6 +189,30 @@ namespace QuizApp
                 }
                 OpenForm.TraceWrite("Added Point on UserPoints in UserDB");
             });
+        }
+
+        private int Get_UserPoints()
+        {
+            int points = 0;
+            try
+            {
+                using (UserDbContext db = new UserDbContext())
+                {
+                    var res = db.Users.SingleOrDefault(u => u.IdUser == Form1.ID_User);
+
+                    if (res != null)
+                    {
+                        points = res.UserPoints;
+                    }
+                }
+                OpenForm.TraceWrite("Readed Points in User Database");
+                return points;
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing User Database!");
+                return points;
+            }
         }
 
         private void QuitButton_Click(object sender, EventArgs e)

@@ -104,7 +104,7 @@
             // userDBToolStripMenuItem
             // 
             this.userDBToolStripMenuItem.Name = "userDBToolStripMenuItem";
-            this.userDBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userDBToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.userDBToolStripMenuItem.Text = "User DB";
             this.userDBToolStripMenuItem.Click += new System.EventHandler(this.userDBToolStripMenuItem_Click);
             // 
@@ -142,6 +142,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "UserLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserLogin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

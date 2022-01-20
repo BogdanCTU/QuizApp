@@ -29,6 +29,7 @@ namespace QuizApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.label1 = new System.Windows.Forms.Label();
             this.QuestionLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@ namespace QuizApp
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 45);
+            this.label1.Location = new System.Drawing.Point(9, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +53,8 @@ namespace QuizApp
             // QuestionLabel
             // 
             this.QuestionLabel.AutoSize = true;
-            this.QuestionLabel.Location = new System.Drawing.Point(12, 58);
+            this.QuestionLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.QuestionLabel.Location = new System.Drawing.Point(9, 69);
             this.QuestionLabel.Name = "QuestionLabel";
             this.QuestionLabel.Size = new System.Drawing.Size(250, 13);
             this.QuestionLabel.TabIndex = 1;
@@ -61,7 +63,7 @@ namespace QuizApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 81);
+            this.label3.Location = new System.Drawing.Point(9, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 2;
@@ -69,47 +71,52 @@ namespace QuizApp
             // 
             // Answer1
             // 
-            this.Answer1.Location = new System.Drawing.Point(12, 97);
+            this.Answer1.BackColor = System.Drawing.Color.White;
+            this.Answer1.Location = new System.Drawing.Point(12, 112);
             this.Answer1.Name = "Answer1";
             this.Answer1.Size = new System.Drawing.Size(125, 23);
             this.Answer1.TabIndex = 3;
             this.Answer1.Text = "1990";
-            this.Answer1.UseVisualStyleBackColor = true;
+            this.Answer1.UseVisualStyleBackColor = false;
             this.Answer1.Click += new System.EventHandler(this.Answer1_Click);
             // 
             // Answer2
             // 
-            this.Answer2.Location = new System.Drawing.Point(147, 97);
+            this.Answer2.BackColor = System.Drawing.Color.White;
+            this.Answer2.Location = new System.Drawing.Point(193, 112);
             this.Answer2.Name = "Answer2";
             this.Answer2.Size = new System.Drawing.Size(125, 23);
             this.Answer2.TabIndex = 4;
             this.Answer2.Text = "1998";
-            this.Answer2.UseVisualStyleBackColor = true;
+            this.Answer2.UseVisualStyleBackColor = false;
             this.Answer2.Click += new System.EventHandler(this.Answer2_Click);
             // 
             // Answer4
             // 
-            this.Answer4.Location = new System.Drawing.Point(147, 126);
+            this.Answer4.BackColor = System.Drawing.Color.White;
+            this.Answer4.Location = new System.Drawing.Point(193, 154);
             this.Answer4.Name = "Answer4";
             this.Answer4.Size = new System.Drawing.Size(125, 23);
             this.Answer4.TabIndex = 5;
             this.Answer4.Text = "1978";
-            this.Answer4.UseVisualStyleBackColor = true;
+            this.Answer4.UseVisualStyleBackColor = false;
             this.Answer4.Click += new System.EventHandler(this.Answer4_Click);
             // 
             // Answer3
             // 
-            this.Answer3.Location = new System.Drawing.Point(12, 126);
+            this.Answer3.BackColor = System.Drawing.Color.White;
+            this.Answer3.Location = new System.Drawing.Point(12, 154);
             this.Answer3.Name = "Answer3";
             this.Answer3.Size = new System.Drawing.Size(125, 23);
             this.Answer3.TabIndex = 6;
             this.Answer3.Text = "1987";
-            this.Answer3.UseVisualStyleBackColor = true;
+            this.Answer3.UseVisualStyleBackColor = false;
             this.Answer3.Click += new System.EventHandler(this.Answer3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 13);
@@ -118,19 +125,21 @@ namespace QuizApp
             // 
             // QuitButton
             // 
-            this.QuitButton.Location = new System.Drawing.Point(197, 4);
+            this.QuitButton.BackColor = System.Drawing.SystemColors.Window;
+            this.QuitButton.Location = new System.Drawing.Point(243, 4);
             this.QuitButton.Name = "QuitButton";
             this.QuitButton.Size = new System.Drawing.Size(75, 23);
             this.QuitButton.TabIndex = 8;
             this.QuitButton.Text = "Quit Now";
-            this.QuitButton.UseVisualStyleBackColor = true;
+            this.QuitButton.UseVisualStyleBackColor = false;
             this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 162);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(330, 187);
             this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Answer3);
@@ -140,7 +149,9 @@ namespace QuizApp
             this.Controls.Add(this.label3);
             this.Controls.Add(this.QuestionLabel);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "GameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameForm";
             this.ResumeLayout(false);
             this.PerformLayout();

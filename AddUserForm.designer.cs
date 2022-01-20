@@ -45,7 +45,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(118, 25);
+            this.textBox5.Location = new System.Drawing.Point(121, 25);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 5;
@@ -80,7 +80,7 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(134, 51);
+            this.BackButton.Location = new System.Drawing.Point(137, 51);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(84, 23);
             this.BackButton.TabIndex = 11;
@@ -92,14 +92,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 86);
+            this.ClientSize = new System.Drawing.Size(230, 77);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AddUserButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "AddUserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUserForm";
             this.ResumeLayout(false);
             this.PerformLayout();
