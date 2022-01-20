@@ -45,7 +45,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 40);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(347, 150);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -63,7 +63,7 @@
             this.userToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(258, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(365, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(161, 196);
+            this.BackButton.Location = new System.Drawing.Point(268, 196);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(91, 23);
             this.BackButton.TabIndex = 3;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 225);
+            this.ClientSize = new System.Drawing.Size(365, 225);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label1);

@@ -12,14 +12,18 @@ namespace QuizApp
 {
     public partial class UserLogin : Form
     {
+        //variable sended in Form1 constructor, necessary to verify login
         static int ID_User = -1;
+
+        // constructor
         public UserLogin()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// TO DO PARTE CRIPTARE SILVIU
+        /// Button Action that logins the user if inserted data is
+        /// available and equal with data in User Database
         /// </summary>
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -45,54 +49,59 @@ namespace QuizApp
             }
         }
 
-        private async void UserLogin_(string Username, string UserPassword)
+        /// <summary>
+        /// Method used in LoginButton
+        /// </summary>
+        private void UserLogin_(string Username, string UserPassword)
         {
-            //await Task.Run(() =>
-            //{
-                try
+            try
+            {
+                using (UserDbContext db = new UserDbContext())
                 {
-                    using (UserDbContext db = new UserDbContext())
+                    var res = from s in db.Users
+                              where s.UserUsername.Contains(Username)
+                              select new
+                              {
+                                  s.IdUser,
+                                  s.UserUsername,
+                                  s.UserPassword   //cripata in baza de date
+                              };
+                    foreach (var usr in res)
                     {
-                        var res = from s in db.Users
-                                  where s.UserUsername.Contains(Username)
-                                  select new
-                                  {
-                                      s.IdUser,
-                                      s.UserUsername,
-                                      s.UserPassword   //cripata in baza de date
-                                  };
-                        foreach (var usr in res)
+                        if (usr.UserPassword.Equals(UserPassword) == true)
                         {
-                            if (usr.UserPassword.Equals(UserPassword) == true)
-                            {
-                                int iduser = usr.IdUser;
-                                Form1 a = new Form1(true, iduser);
-                                a.Show();
-                                this.Close();
-                            }
+                            int iduser = usr.IdUser;
+                            Form1 a = new Form1(true, iduser);
+                            a.Show();
+                            this.Close();
                         }
                     }
-                    textBox1.Clear();
-                    maskedTextBox1.Clear();
-                OpenForm.TraceWrite("User Login");
                 }
-                catch
-                {
-                    MessageBox.Show("An error has occoured! \n   Please try again!");
-                }
-            //});
+                textBox1.Clear();
+                maskedTextBox1.Clear();
+                Form1.TraceWrite("User Login");
+            }
+            catch
+            {
+                MessageBox.Show("An error has occoured! \n   Please try again!");
+            }
         }
 
-        //DONE
+        /// <summary>
+        /// Action Button that opens user Database view Form
+        /// </summary>
         private void userDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserDbViewForm b = new UserDbViewForm(0);
-            //this.Hide();
             b.Show();
             this.Close();
         }
 
-        // ADMIN - DONE
+        /// <summary>
+        /// Action Button that opens user Database view Form as administrator
+        /// it has some specific proprieties (the only one that can delete
+        /// users from Database)
+        /// </summary>
         private void AdminButton_Click(object sender, EventArgs e)
         {
             if(this.textBox1.Text == "admin" && this.maskedTextBox1.Text == "admin")
@@ -108,6 +117,9 @@ namespace QuizApp
         }
 
         // DONE
+        /// <summary>
+        /// Action Button that opens user Main App Form (Form1)
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1(false, 0);

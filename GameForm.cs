@@ -12,8 +12,11 @@ namespace QuizApp
 {
     public partial class GameForm : Form
     {
+        // Local variables
         int Quest;
         string answer;
+
+        // Constructor
         public GameForm(int question)
         {
             InitializeComponent();
@@ -24,9 +27,12 @@ namespace QuizApp
             label2.Text = ("User: " + UserName + " | Points: " + points);
         }
 
+        /// <summary>
+        /// 4 Action Button which verify the correctness of the response given by the user
+        /// </summary>
         private void Answer1_Click(object sender, EventArgs e)
         {
-            if (Quest <= Form1.LastQuest)
+            if (Quest <= GlobalUtilities.LastQuest)
             {
                 if (answer == Answer1.Text)
                 {
@@ -54,7 +60,7 @@ namespace QuizApp
 
         private void Answer2_Click(object sender, EventArgs e)
         {
-            if (Quest <= Form1.LastQuest)
+            if (Quest <= GlobalUtilities.LastQuest)
             {
                 if (answer == Answer2.Text)
                 {
@@ -82,7 +88,7 @@ namespace QuizApp
 
         private void Answer3_Click(object sender, EventArgs e)
         {
-            if (Quest <= Form1.LastQuest)
+            if (Quest <= GlobalUtilities.LastQuest)
             {
                 if (answer == Answer3.Text)
                 {
@@ -110,7 +116,7 @@ namespace QuizApp
 
         private void Answer4_Click(object sender, EventArgs e)
         {
-            if (Quest <= Form1.LastQuest)
+            if (Quest <= GlobalUtilities.LastQuest)
             {
                 if (answer == Answer4.Text)
                 {
@@ -136,6 +142,10 @@ namespace QuizApp
             }
         }
 
+        /// <summary>
+        /// Async Method called in Constructor
+        /// Loads new data from the Database for game current session
+        /// </summary>
         private async void LoadQuiz()
         {
             await Task.Run(() =>
@@ -164,7 +174,7 @@ namespace QuizApp
                             answer = q.CorectAnswer;
                         }
                     }
-                    OpenForm.TraceWrite("Loaded Quiz");
+                    Form1.TraceWrite("Loaded Quiz");
                 }
                 catch
                 {
@@ -173,13 +183,17 @@ namespace QuizApp
             });
         }
 
+        /// <summary>
+        /// Async Method called in buttons, it is used to add one point to
+        /// User's points in Database
+        /// </summary>
         private async void AddPoint()
         {
             await Task.Run(() =>
             {
                 using (UserDbContext db = new UserDbContext())
                 {
-                    var res = db.Users.SingleOrDefault(u => u.IdUser == Form1.ID_User);
+                    var res = db.Users.SingleOrDefault(u => u.IdUser == GlobalUtilities.ID_User);
 
                     if (res != null)
                     {
@@ -187,10 +201,13 @@ namespace QuizApp
                         db.SaveChanges();
                     }
                 }
-                OpenForm.TraceWrite("Added Point on UserPoints in UserDB");
+                Form1.TraceWrite("Added Point on UserPoints in UserDB");
             });
         }
 
+        /// <summary>
+        /// Synchronous method thet loads User's Points from Database
+        /// </summary>
         private int Get_UserPoints()
         {
             int points = 0;
@@ -198,14 +215,14 @@ namespace QuizApp
             {
                 using (UserDbContext db = new UserDbContext())
                 {
-                    var res = db.Users.SingleOrDefault(u => u.IdUser == Form1.ID_User);
+                    var res = db.Users.SingleOrDefault(u => u.IdUser == GlobalUtilities.ID_User);
 
                     if (res != null)
                     {
                         points = res.UserPoints;
                     }
                 }
-                OpenForm.TraceWrite("Readed Points in User Database");
+                Form1.TraceWrite("Readed Points in User Database");
                 return points;
             }
             catch
@@ -215,6 +232,9 @@ namespace QuizApp
             }
         }
 
+        /// <summary>
+        /// Action Button that closes actual Form (ends actual game session)
+        /// </summary>
         private void QuitButton_Click(object sender, EventArgs e)
         {
             //Form1 f = new Form1(true, Form1.ID_User);

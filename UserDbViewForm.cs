@@ -12,7 +12,13 @@ namespace QuizApp
 {
     public partial class UserDbViewForm : Form
     {
+
+        /// <summary>
+        /// Local variable used to determine if user is
+        /// </summary>
         int admin = -1;
+
+        // Constructor
         public UserDbViewForm(int adm)
         {
             InitializeComponent();
@@ -22,7 +28,9 @@ namespace QuizApp
             admin = adm;
         }
 
-        // BACK BUTTON -> DONE
+        /// <summary>
+        /// Action Button that closes actual Form and opens Main App Form (Form1)
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             UserLogin ul = new UserLogin();
@@ -30,11 +38,11 @@ namespace QuizApp
             this.Close();
         }
 
-        // LOAD DATA -> DONE
-        private async void LoadData()
+        /// <summary>
+        /// Method Used to load data from User Database in ViewDataGrid
+        /// </summary>
+        private void LoadData()
         {
-            //await Task.Run(() =>
-            //{
             try
             {
                 using (UserDbContext db = new UserDbContext())
@@ -48,16 +56,17 @@ namespace QuizApp
                                   };
                         dataGridView1.DataSource = res.ToList();
                     }
-                OpenForm.TraceWrite("Loaded Users from DataBase");
+                Form1.TraceWrite("Loaded Users from DataBase");
                 }
             catch
             {
                 MessageBox.Show("Error loading User Database!");
             }
-            //});
         }
 
-        // REFRESH BUTTON -> DONE
+        /// <summary>
+        /// Action button that calls LoadData method
+        /// </summary>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
 
@@ -67,14 +76,18 @@ namespace QuizApp
             
         }
 
-        // ADD -> DONE
+        /// <summary>
+        /// Action button that opens AddUser Form
+        /// </summary>
         private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddUserForm au = new AddUserForm();
             au.ShowDialog();
         }
 
-        // DELETE -> DONE
+        /// <summary>
+        /// Action button that opens DeleteUser Form
+        /// </summary>
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (admin == -1)

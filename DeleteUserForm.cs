@@ -12,11 +12,16 @@ namespace QuizApp
 {
     public partial class DeleteUserForm : Form
     {
+        // Constructor
         public DeleteUserForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Action Button that search an instance of User in Database
+        /// that coincides with the appropriate User ID
+        /// </summary>
         private void SearchButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true)
@@ -33,6 +38,10 @@ namespace QuizApp
             }
         }
 
+        /// <summary>
+        /// Method called in SearchButton
+        /// used to search the appropriate instance of User
+        /// </summary>
         private void SearchUser(int ID)
         {
             //await Task.Run(() =>
@@ -52,7 +61,7 @@ namespace QuizApp
                               };
                     dataGridView1.DataSource = res.ToList();
                 }
-                OpenForm.TraceWrite("Searched User in DataBase");
+                Form1.TraceWrite("Searched User in DataBase");
             }
             catch (Exception ex)
             {
@@ -61,6 +70,10 @@ namespace QuizApp
             //});
         }
 
+        /// <summary>
+        /// Action Button that search an instance of User in Database
+        /// that coincides with the appropriate User ID and deletes it
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true)
@@ -82,11 +95,18 @@ namespace QuizApp
             }
         }
 
+        /// <summary>
+        /// Action Button that closes actual Form
+        /// </summary>
         private void BackMenu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Method that search an instance of User in Database
+        /// that coincides with the appropriate User ID and deletes it
+        /// </summary>
         private async void DeleteUserAsync(int ID)
         {
             await Task.Run(() =>
@@ -102,7 +122,7 @@ namespace QuizApp
                     }
                 }
                 this.DialogResult = DialogResult.OK;
-                OpenForm.TraceWrite("Delete User");
+                Form1.TraceWrite("Delete User");
             });
         }
 

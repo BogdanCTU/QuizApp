@@ -8,16 +8,23 @@ namespace QuizApp
 {
     public partial class AddUserForm : Form
     {
+        // Constructor
         public AddUserForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Action Button that opens closes actual Form
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Action Button that access user Database and adds an instance of user
+        /// </summary>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox4.Text) != true || string.IsNullOrWhiteSpace(textBox5.Text) != true)
@@ -69,6 +76,9 @@ namespace QuizApp
             }
         }
 
+        /// <summary>
+        /// Async method that add User instance in Database
+        /// </summary>
         private void AddUserAsync(string userUsername, string userPassword, int userPoints)
         {
             using (UserDbContext udb = new UserDbContext())
@@ -81,7 +91,7 @@ namespace QuizApp
                 udb.SaveChanges();
             }
             this.DialogResult = DialogResult.OK;
-            OpenForm.TraceWrite("Add User");
+            Form1.TraceWrite("Add User");
         }
     }
 }
