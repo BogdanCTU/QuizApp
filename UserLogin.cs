@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using SilviuDLL;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuizApp
@@ -13,7 +9,10 @@ namespace QuizApp
     public partial class UserLogin : Form
     {
         //variable sended in Form1 constructor, necessary to verify login
-        static int ID_User = -1;
+        int ID_User = -1;
+
+        // Silviu
+        Class1 c1 = new Class1();
 
         // constructor
         public UserLogin()
@@ -35,13 +34,9 @@ namespace QuizApp
             // DECRIPTEZI PAROLA PRIN CHEIE
             // SILVIU
 
-
-
             if (string.IsNullOrWhiteSpace(textBox1.Text) != true || string.IsNullOrWhiteSpace(maskedTextBox1.Text) != true)
             {
-                //Task.Run(() =>
                 UserLogin_(uUsername, uUserPassword);
-                ////);
             }
             else
             {
@@ -68,6 +63,8 @@ namespace QuizApp
                               };
                     foreach (var usr in res)
                     {
+                        //string decriptedPassword = c1.DecryptFromXml(UserPassword);
+                        //if (usr.UserPassword.Equals(decriptedPassword) == true)
                         if (usr.UserPassword.Equals(UserPassword) == true)
                         {
                             int iduser = usr.IdUser;

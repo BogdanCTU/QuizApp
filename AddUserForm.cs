@@ -3,11 +3,15 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SilviuDLL;
 
 namespace QuizApp
 {
     public partial class AddUserForm : Form
     {
+        // Silviu
+        Class1 c1 = new Class1();
+
         // Constructor
         public AddUserForm()
         {
@@ -31,7 +35,17 @@ namespace QuizApp
             {
                 try
                 {
+                    //variables
+                    string userUsername = this.textBox4.Text;
+                    string userPassword = this.textBox5.Text;
+                    string cryptedPassword = " ";
                     bool newUser = true;
+
+                    // SALVARE PASSSWORD SI CHEIE IN XML
+                    // PASSWORD TREBUIE SA FIE CRIPTATA
+                    // SILVIU 
+                    cryptedPassword = c1.EncryptInXml(userPassword);
+
                     using (UserDbContext udb = new UserDbContext())
                     {
                         var res = from s in udb.Users
@@ -49,23 +63,12 @@ namespace QuizApp
 
                     if (newUser == true)
                     {
-                        string userUsername = this.textBox4.Text;
-                        string userPassword = this.textBox5.Text;
                         int userPoints = 0;
-                        //Task.Run(() => 
-                        AddUserAsync(userUsername, userPassword, userPoints);
-                        //);
+                        AddUserAsync(userUsername, cryptedPassword, userPoints);
                     }
-                    // SALVARE PASSSWORD SI CHEIE IN XML
-                    // PASSWORD TREBUIE SA FIE CRIPTATA
-                    // SILVIU 
-
-
-
-
                     this.Close();
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("Please insert values in textboxes!");
                 }
